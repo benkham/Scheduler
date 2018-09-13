@@ -16,3 +16,5 @@ Update the settings value in `appsettings.json` file.
 Run the SPA app before starting the API app from visual studio.
 
 Swagger UI is accessible from `http://localhost:<PORT>/swagger`.
+
+![alt text](https://github.com/benkham/Scheduler/blob/master/Src/VicTrains.WebUI/wwwroot/Scheduler.Screen.png)
