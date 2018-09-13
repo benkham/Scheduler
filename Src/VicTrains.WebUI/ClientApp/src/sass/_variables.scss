@@ -1,0 +1,60 @@
+// custom bootstrap variables
+$black: #000;
+$white: #fff;
+$primary: #F05029;
+$secondary: #0D0D0D;
+$font-family-sans-serif: Montserrat;
+$display4-size: 2.5rem;
+$display3-size: 3.5rem;
+$display2-size: 4.5rem;
+$display1-size: 5rem;
+$navbar-dark-hover-color: rgba($white, .9);
+$navbar-dark-color: rgba($white, .75);
+
+// typography
+$font-size-small: 0.75em; // 12px
+$font-size-xs-medium: 0.8125em; // 13px
+$font-size-medium: 0.875em; // 14px
+$font-size-x-medium: 0.9375em; //15px
+$font-size-regular: 1em; //16px;
+$font-size-large: 24;
+$font-size-x-large: 32;
+$font-size-xx-large: 48;
+$font-size-xxx-large: 64;
+$font-size-xxxx-large: 96;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium-bold: 500;
+$font-weight-bold: 600;
+
+$font-family-content: 'Open Sans', sans-serif;
+
+// color
+$copper-red: $primary;
+$pale-copper-red: #ff8355;
+$pale-black: $secondary;
+$iron: #dadbdf;
+$regent-grey: #808c99;
+$pale-sky: #6b717f;
+$midnight-blue: #036;
+
+$color-shadow: rgba($black, .125);
+$color-primary: $copper-red;
+$color-accent: $pale-black;
+$color-background: $white;
+$color-background-shade: $iron;
+$color-background-invert: $copper-red;
+$color-text: darken($pale-sky, 15);
+$color-text-weak: $regent-grey;
+$color-text-strong: $midnight-blue;
+$color-text-heading: $regent-grey;
+$color-text-invert: rgba($color-background, .75);
+$color-text-strong-invert: $color-background;
+$color-text-link: $color-primary;
+$color-text-link-visited: $pale-copper-red;
+$color-text-link-hover: $midnight-blue;
+$color-border: $iron;
+
+// bootstrap theme builder - https://bootstrap.build/
+// sass style guide - http://sass-lang.com/styleguide/color

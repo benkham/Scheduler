@@ -1,0 +1,344 @@
+﻿{
+  "x-generator": "NSwag v11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v11.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "VicTrains API",
+    "version": "1.0.0"
+  },
+  "consumes": [
+    "application/json-patch+json",
+    "application/json",
+    "text/json",
+    "application/*+json"
+  ],
+  "produces": [
+    "text/plain",
+    "application/json",
+    "text/json"
+  ],
+  "paths": {
+    "/api/Schedules": {
+      "get": {
+        "tags": [
+          "Schedules"
+        ],
+        "operationId": "Schedules_GetAll",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduleListModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Schedules"
+        ],
+        "operationId": "Schedules_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateScheduleCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Schedules/{id}": {
+      "get": {
+        "tags": [
+          "Schedules"
+        ],
+        "operationId": "Schedules_Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Schedules"
+        ],
+        "operationId": "Schedules_Update",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "nullable": false
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScheduleCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Schedules"
+        ],
+        "operationId": "Schedules_Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TrainLines": {
+      "get": {
+        "tags": [
+          "TrainLines"
+        ],
+        "operationId": "TrainLines_Get",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TrainLineListModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ScheduleListModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "trainLineId",
+          "departureDateTime",
+          "arrivalDateTime"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trainLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trainLine": {
+            "type": "string"
+          },
+          "trainLineDescription": {
+            "type": "string"
+          },
+          "departureStation": {
+            "type": "string"
+          },
+          "departureDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "arrivalStation": {
+            "type": "string"
+          },
+          "arrivalDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CreateScheduleCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "trainLineId",
+          "departureStation",
+          "departureDateTime",
+          "arrivalStation",
+          "arrivalDateTime"
+        ],
+        "properties": {
+          "trainLineId": {
+            "type": "integer",
+            "format": "int32",
+            "minLength": 1
+          },
+          "departureStation": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1
+          },
+          "departureDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
+          },
+          "arrivalStation": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1
+          },
+          "arrivalDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
+          }
+        }
+      },
+      "UpdateScheduleCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "trainLineId",
+          "departureStation",
+          "departureDateTime",
+          "arrivalStation",
+          "arrivalDateTime"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "minLength": 1
+          },
+          "trainLineId": {
+            "type": "integer",
+            "format": "int32",
+            "minLength": 1
+          },
+          "departureStation": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1
+          },
+          "departureDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
+          },
+          "arrivalStation": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1
+          },
+          "arrivalDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
+          }
+        }
+      },
+      "TrainLineListModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "line": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

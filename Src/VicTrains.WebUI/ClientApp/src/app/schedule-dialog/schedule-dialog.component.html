@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>
+  Schedule
+</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <mat-select placeholder="Select Line" formControlName="trainLineId">
+      <mat-option *ngFor="let trainLine of trainLines" [value]="trainLine.id">
+        {{trainLine.line}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Departure Station" formControlName="departureStation">
+  </mat-form-field>
+
+  <small class="text-muted">Departure Date Time</small>
+  <input class="date-time-field" matInput [owlDateTime]="departureDatepicker" [owlDateTimeTrigger]="departureDatepicker" placeholder="Departure Date Time"
+    formControlName="departureDateTime">
+  <owl-date-time #departureDatepicker></owl-date-time>
+
+  <mat-form-field>
+    <input matInput placeholder="Arrival Station" formControlName="arrivalStation">
+  </mat-form-field>
+
+  <small class="text-muted">Arrival Date Time</small>
+  <input class="date-time-field" matInput [owlDateTime]="arrivalDatepicker" [owlDateTimeTrigger]="arrivalDatepicker" placeholder="Arrival Date Time"
+    formControlName="arrivalDateTime">
+  <owl-date-time #arrivalDatepicker></owl-date-time>
+
+  <mat-dialog-actions>
+    <button class="mat-raised-button mat-primary" (click)="save()" type="submit" [disabled]="!form.valid">
+      Save
+    </button>
+    <button class="mat-raised-button" (click)="close()">
+      Close
+    </button>
+  </mat-dialog-actions>
